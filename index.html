@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Weedmen LLC | Professional Grounds Maintenance & Snow Management | Milwaukee, WI</title>
+  <meta name="description" content="The Weedmen LLC is a full-service commercial grounds maintenance and snow management company serving the Milwaukee metro area. Request a free quote today.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Bebas+Neue&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* ─── Variables ─────────────────────────────────────────── */
+    :root {
+      --black:      #060806;
+      --dark:       #0d100d;
+      --darker:     #08090a;
+      --card:       #141714;
+      --card-hi:    #1a1f1a;
+      --border:     #232723;
+      --green:      #5CB800;
+      --green-hi:   #78E000;
+      --green-dark: #3a7800;
+      --green-glow: #9BFF36;
+      --glow:       rgba(120,224,0,.35);
+      --silver:     #d4d4d4;
+      --muted:      #6c706c;
+      --white:      #ffffff;
+      --grad-green: linear-gradient(135deg,#3a7800 0%,#5CB800 40%,#78E000 80%,#9BFF36 100%);
+      --grad-dark:  linear-gradient(180deg, rgba(6,8,6,.4) 0%, rgba(6,8,6,.85) 60%, var(--black) 100%);
+    }
+
+    /* ─── Reset / Base ──────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--black); color:var(--white); overflow-x:hidden; }
+    section[id], div[id] { scroll-margin-top:90px; }
+
+    ::-webkit-scrollbar { width:8px; }
+    ::-webkit-scrollbar-track { background:var(--dark); }
+    ::-webkit-scrollbar-thumb { background:linear-gradient(180deg,var(--green),var(--green-dark)); border-radius:4px; }
+    ::-webkit-scrollbar-thumb:hover { background:var(--green-hi); }
+
+    ::selection { background:var(--green); color:#000; }
+
+    a { text-decoration:none; }
+    img { max-width:100%; display:block; }
+
+    /* ─── Utility ───────────────────────────────────────────── */
+    .section-label {
+      display:inline-flex; align-items:center; gap:.6rem;
+      font-size:.72rem; letter-spacing:3px; text-transform:uppercase;
+      color:var(--green-hi); margin-bottom:.85rem; font-weight:600;
+    }
+    .section-label::before {
+      content:''; width:30px; height:2px; background:var(--green);
+    }
+    .section-title {
+      font-family:'Oswald',sans-serif; font-size:clamp(2.2rem,4.5vw,3.4rem);
+      font-weight:700; text-transform:uppercase; line-height:1.05;
+      margin-bottom:1rem; letter-spacing:-.5px;
+    }
+    .section-title .accent {
+      background:var(--grad-green); -webkit-background-clip:text;
+      background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .section-sub { color:var(--muted); line-height:1.75; max-width:580px; font-size:1.02rem; }
+    .section-head { margin-bottom:3.5rem; }
+
+    .btn-green {
+      position:relative; display:inline-flex; align-items:center; gap:.6rem;
+      background:var(--green); color:#000;
+      padding:1rem 2rem; border-radius:8px;
+      font-family:'Oswald',sans-serif; font-size:1rem;
+      font-weight:600; letter-spacing:1.5px; text-transform:uppercase;
+      border:none; cursor:pointer; transition:all .35s cubic-bezier(.2,.8,.2,1);
+      overflow:hidden; isolation:isolate;
+    }
+    .btn-green::before {
+      content:''; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(120deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%);
+      transform:translateX(-100%); transition:transform .6s;
+    }
+    .btn-green:hover {
+      background:var(--green-hi); box-shadow:0 12px 36px rgba(120,224,0,.45), 0 0 0 4px rgba(120,224,0,.12);
+      transform:translateY(-3px);
+    }
+    .btn-green:hover::before { transform:translateX(100%); }
+
+    .btn-ghost {
+      display:inline-flex; align-items:center; gap:.6rem;
+      background:rgba(255,255,255,.04); color:var(--white);
+      padding:1rem 2rem; border:1px solid rgba(255,255,255,.15);
+      border-radius:8px; font-family:'Oswald',sans-serif;
+      font-size:1rem; letter-spacing:1.5px; text-transform:uppercase;
+      transition:all .3s; backdrop-filter:blur(10px);
+    }
+    .btn-ghost:hover { border-color:var(--green); color:var(--green-hi); background:rgba(92,184,0,.08); transform:translateY(-3px); }
+
+    /* fade reveals */
+    .fu { opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+    .fu.on { opacity:1; transform:translateY(0); }
+    .fl { opacity:0; transform:translateX(-40px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+    .fl.on { opacity:1; transform:translateX(0); }
+    .fr { opacity:0; transform:translateX(40px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.2,1); }
+    .fr.on { opacity:1; transform:translateX(0); }
+
+    /* ─── NAV ───────────────────────────────────────────────── */
+    #nav {
+      position:fixed; inset:0 0 auto; z-index:999;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.1rem 5%;
+      background:rgba(6,8,6,.7); backdrop-filter:blur(22px) saturate(180%);
+      border-bottom:1px solid rgba(120,224,0,.12);
+      transition:padding .35s, background .3s, box-shadow .3s;
+    }
+    #nav.scrolled {
+      padding:.7rem 5%;
+      background:rgba(6,8,6,.94);
+      box-shadow:0 4px 50px rgba(0,0,0,.7);
+    }
+
+    .nav-logo { height:62px; width:auto; filter:drop-shadow(0 4px 14px rgba(120,224,0,.25)); }
+    .nav-logo-text {
+      font-family:'Oswald',sans-serif; font-size:1.9rem; font-weight:700;
+      letter-spacing:2px; color:var(--white); display:none;
+    }
+    .nav-logo-text span { color:var(--green-hi); }
+
+    .nav-links { list-style:none; display:flex; gap:2.2rem; align-items:center; }
+    .nav-links a {
+      position:relative; color:var(--silver); font-family:'Oswald',sans-serif;
+      font-size:.88rem; letter-spacing:1.5px; text-transform:uppercase;
+      transition:color .25s; padding:.3rem 0;
+    }
+    .nav-links a:not(.nav-cta)::after {
+      content:''; position:absolute; bottom:-4px; left:0;
+      width:0; height:2px; background:var(--green-hi);
+      transition:width .3s;
+    }
+    .nav-links a:not(.nav-cta):hover::after { width:100%; }
+    .nav-links a:hover { color:var(--green-hi); }
+    .nav-cta {
+      background:var(--green)!important; color:#000!important;
+      padding:.65rem 1.4rem; border-radius:6px; font-weight:600!important;
+      box-shadow:0 4px 18px rgba(120,224,0,.3);
+      transition:all .3s!important;
+    }
+    .nav-cta:hover { background:var(--green-hi)!important; box-shadow:0 6px 24px rgba(120,224,0,.5); transform:translateY(-2px); }
+
+    .burger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:6px; }
+    .burger span { display:block; width:26px; height:2px; background:var(--silver); border-radius:2px; transition:all .3s; }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    .hero {
+      position:relative; min-height:100vh;
+      display:flex; align-items:center;
+      padding:140px 5% 120px;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    /* Real lawn photo background */
+    .hero-photo {
+      position:absolute; inset:0; z-index:-3;
+      background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1920&q=80');
+      background-size:cover; background-position:center;
+      filter:brightness(.45) saturate(1.1);
+    }
+
+    /* Dark gradient overlay */
+    .hero-overlay {
+      position:absolute; inset:0; z-index:-2;
+      background:
+        linear-gradient(115deg, rgba(6,8,6,.95) 0%, rgba(6,8,6,.78) 35%, rgba(6,8,6,.45) 65%, rgba(6,8,6,.7) 100%),
+        radial-gradient(ellipse 60% 70% at 75% 50%, rgba(92,184,0,.18) 0%, transparent 65%);
+    }
+
+    .hero-content { position:relative; z-index:2; max-width:720px; }
+
+    .hero-pill {
+      display:inline-flex; align-items:center; gap:.65rem;
+      background:rgba(120,224,0,.1); border:1px solid rgba(120,224,0,.32);
+      border-radius:30px; padding:.45rem 1.2rem;
+      font-size:.75rem; letter-spacing:2.5px; text-transform:uppercase;
+      color:var(--green-hi); margin-bottom:1.8rem; font-weight:600;
+      backdrop-filter:blur(10px);
+    }
+    .hero-pill::before {
+      content:''; width:7px; height:7px; border-radius:50%;
+      background:var(--green-hi); box-shadow:0 0 10px var(--green-hi);
+      animation:blink 1.8s infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%    { opacity:.4; transform:scale(.7); }
+    }
+
+    .hero h1 {
+      font-family:'Oswald',sans-serif;
+      font-size:clamp(2.4rem, 5vw, 4.4rem);
+      font-weight:700; line-height:1.08;
+      text-transform:uppercase; margin-bottom:1.8rem;
+      letter-spacing:-1px;
+    }
+    .hero h1 .grad {
+      background:var(--grad-green); -webkit-background-clip:text;
+      background-clip:text; -webkit-text-fill-color:transparent;
+      filter:drop-shadow(0 0 32px rgba(120,224,0,.35));
+      display:inline-block;
+    }
+    .hero h1 .word {
+      display:inline-block; opacity:0;
+      animation:slideUpWord 1s cubic-bezier(.3,.7,.3,1) forwards;
+    }
+    .hero h1 .word:nth-child(1) { animation-delay:.1s; }
+    .hero h1 .word:nth-child(2) { animation-delay:.3s; }
+    .hero h1 .word:nth-child(3) { animation-delay:.5s; }
+    @keyframes slideUpWord {
+      from { opacity:0; transform:translateY(60px) rotateX(-50deg); }
+      to   { opacity:1; transform:translateY(0) rotateX(0); }
+    }
+
+    .hero p {
+      font-size:1.2rem; color:#bbbcbb; line-height:1.75;
+      margin-bottom:2.5rem; max-width:560px;
+      opacity:0; animation:fadeIn 1s ease .9s forwards;
+    }
+    @keyframes fadeIn { to { opacity:1; } }
+
+    .hero-btns {
+      display:flex; gap:1rem; flex-wrap:wrap;
+      opacity:0; animation:fadeIn 1s ease 1.1s forwards;
+    }
+
+    .hero-stats {
+      display:flex; gap:3rem; margin-top:4.5rem;
+      padding-top:2rem; border-top:1px solid rgba(255,255,255,.1);
+      opacity:0; animation:fadeIn 1s ease 1.3s forwards;
+    }
+    .stat h3 {
+      font-family:'Oswald',sans-serif; font-size:2.5rem; font-weight:700;
+      background:var(--grad-green); -webkit-background-clip:text;
+      background-clip:text; -webkit-text-fill-color:transparent;
+      line-height:1;
+    }
+    .stat p { font-size:.74rem; color:#999; text-transform:uppercase; letter-spacing:2px; margin-top:.4rem; }
+
+    /* ─── MARQUEE TRUST BAR ─────────────────────────────────── */
+    .trust-bar {
+      position:relative; z-index:5;
+      background:linear-gradient(90deg, var(--card) 0%, var(--card-hi) 50%, var(--card) 100%);
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+      padding:1.5rem 0; overflow:hidden;
+    }
+    .marquee {
+      display:flex; gap:4rem; width:max-content;
+      animation:scroll-left 35s linear infinite;
+    }
+    @keyframes scroll-left {
+      from { transform:translateX(0); }
+      to   { transform:translateX(-50%); }
+    }
+    .marquee:hover { animation-play-state:paused; }
+    .trust-item {
+      display:flex; align-items:center; gap:.7rem;
+      font-family:'Oswald',sans-serif; font-size:.95rem;
+      letter-spacing:2px; text-transform:uppercase; color:var(--silver);
+      white-space:nowrap;
+    }
+    .trust-item i { color:var(--green-hi); font-size:1.1rem; }
+    .trust-divider { color:var(--green); font-size:.6rem; display:flex; align-items:center; }
+
+    /* ─── SECTION DIVIDER (wave) ───────────────────────────── */
+    .wave-divider {
+      width:100%; height:60px; display:block;
+      background:var(--dark);
+    }
+    .wave-divider svg { width:100%; height:100%; display:block; }
+
+    /* ─── SERVICES ──────────────────────────────────────────── */
+    #services {
+      padding:110px 5%; background:var(--dark);
+      position:relative; overflow:hidden;
+    }
+    #services::before {
+      content:''; position:absolute; top:-100px; right:-100px;
+      width:400px; height:400px; border-radius:50%;
+      background:radial-gradient(circle, rgba(92,184,0,.12) 0%, transparent 60%);
+      pointer-events:none;
+    }
+    #services::after {
+      content:''; position:absolute; bottom:-100px; left:-100px;
+      width:400px; height:400px; border-radius:50%;
+      background:radial-gradient(circle, rgba(92,184,0,.08) 0%, transparent 60%);
+      pointer-events:none;
+    }
+
+    .services-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); gap:1.5rem;
+      position:relative; z-index:1;
+    }
+    .svc-card {
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:16px; overflow:hidden;
+      transition:all .4s cubic-bezier(.2,.8,.2,1);
+      position:relative;
+    }
+    .svc-card::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, transparent 60%, rgba(120,224,0,.08));
+      opacity:0; transition:opacity .4s;
+      pointer-events:none;
+    }
+    .svc-card:hover {
+      border-color:rgba(120,224,0,.4); transform:translateY(-8px);
+      box-shadow:0 30px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(120,224,0,.15);
+    }
+    .svc-card:hover::after { opacity:1; }
+
+    .svc-img {
+      position:relative; height:160px; overflow:hidden;
+      background:#0a0c0a;
+    }
+    .svc-img img {
+      width:100%; height:100%; object-fit:cover;
+      transition:transform .8s ease;
+      filter:brightness(.7) saturate(1.1);
+    }
+    .svc-card:hover .svc-img img { transform:scale(1.12); filter:brightness(.85) saturate(1.2); }
+    .svc-img::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(180deg, transparent 40%, var(--card) 100%);
+    }
+
+    .svc-icon {
+      position:absolute; bottom:14px; left:20px; z-index:3;
+      width:54px; height:54px; border-radius:14px;
+      background:var(--green); display:flex; align-items:center;
+      justify-content:center; font-size:1.3rem; color:#000;
+      box-shadow:0 12px 30px rgba(120,224,0,.4);
+      transition:transform .4s;
+    }
+    .svc-card:hover .svc-icon { transform:rotate(-8deg) scale(1.1); background:var(--green-hi); }
+
+    .svc-body { padding:1.6rem 1.8rem 1.8rem; position:relative; }
+    .svc-card h3 {
+      font-family:'Oswald',sans-serif; font-size:1.35rem; font-weight:600;
+      text-transform:uppercase; margin-bottom:.7rem;
+    }
+    .svc-card > .svc-body > p { color:var(--muted); font-size:.92rem; line-height:1.7; margin-bottom:1.1rem; }
+
+    .svc-list { display:flex; flex-direction:column; gap:.5rem; }
+    .svc-list li { display:flex; align-items:center; gap:.55rem; font-size:.83rem; color:#8a8d8a; list-style:none; }
+    .svc-list li i { color:var(--green); font-size:.7rem; }
+
+    /* ─── ABOUT / WHY US ────────────────────────────────────── */
+    #about {
+      padding:120px 5%; background:var(--black); position:relative;
+      overflow:hidden;
+    }
+    .about-grid {
+      display:grid; grid-template-columns:1.15fr 1fr;
+      gap:5rem; align-items:center;
+    }
+    .about-img-wrap {
+      position:relative;
+      border-radius:18px; overflow:hidden;
+      box-shadow:0 30px 60px rgba(0,0,0,.5);
+    }
+    .about-img-wrap img {
+      width:100%; height:520px; object-fit:cover;
+      transition:transform 1s;
+    }
+    .about-img-wrap:hover img { transform:scale(1.05); }
+    .about-img-wrap::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, transparent 50%, rgba(92,184,0,.15));
+      pointer-events:none;
+    }
+    /* Floating stat badge */
+    .floating-badge {
+      position:absolute; bottom:24px; left:24px;
+      background:rgba(6,8,6,.92); backdrop-filter:blur(20px);
+      border:1px solid rgba(120,224,0,.3);
+      border-radius:16px; padding:1.3rem 1.6rem;
+      display:flex; align-items:center; gap:1rem; z-index:2;
+      animation:floatBadge 4s ease-in-out infinite;
+    }
+    @keyframes floatBadge {
+      0%,100% { transform:translateY(0); }
+      50%     { transform:translateY(-8px); }
+    }
+    .floating-badge .fb-icon {
+      width:50px; height:50px; border-radius:12px;
+      background:var(--green); display:flex; align-items:center;
+      justify-content:center; color:#000; font-size:1.4rem;
+    }
+    .floating-badge h4 { font-family:'Oswald',sans-serif; font-size:1.5rem; color:var(--green-hi); line-height:1; }
+    .floating-badge p { font-size:.7rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); }
+
+    .top-right-badge {
+      position:absolute; top:24px; right:24px;
+      background:rgba(120,224,0,.92); color:#000;
+      border-radius:50px; padding:.55rem 1.1rem;
+      font-family:'Oswald',sans-serif; font-size:.75rem;
+      letter-spacing:1.5px; text-transform:uppercase; font-weight:700;
+      display:flex; align-items:center; gap:.45rem; z-index:2;
+      box-shadow:0 10px 30px rgba(120,224,0,.4);
+    }
+
+    .about-content h2 {
+      font-family:'Oswald',sans-serif; font-size:clamp(2.2rem,4vw,3.4rem);
+      font-weight:700; text-transform:uppercase; line-height:1.05;
+      margin-bottom:1.2rem; letter-spacing:-.5px;
+    }
+    .about-content > p {
+      color:var(--muted); line-height:1.8; font-size:1.02rem; margin-bottom:2rem;
+    }
+    .why-list {
+      display:flex; flex-direction:column; gap:1.4rem; margin-bottom:2.2rem;
+    }
+    .why-item { display:flex; gap:1rem; }
+    .why-icon {
+      width:46px; height:46px; border-radius:12px;
+      background:rgba(92,184,0,.12); border:1px solid rgba(92,184,0,.25);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--green-hi); font-size:1.05rem; flex-shrink:0;
+    }
+    .why-item h4 { font-family:'Oswald',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.3rem; text-transform:uppercase; letter-spacing:.5px; }
+    .why-item p { color:var(--muted); font-size:.875rem; line-height:1.6; }
+
+    /* ─── BEFORE / AFTER GALLERY ────────────────────────────── */
+    #gallery {
+      padding:110px 5%; background:var(--dark);
+      position:relative; overflow:hidden;
+    }
+    #gallery::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(92,184,0,.06) 0%, transparent 70%);
+      pointer-events:none;
+    }
+    .gallery-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:1.6rem; position:relative; z-index:1;
+    }
+    .g-item {
+      border-radius:16px; overflow:hidden; border:1px solid var(--border);
+      background:var(--card); transition:all .4s;
+    }
+    .g-item:hover { border-color:rgba(120,224,0,.3); transform:translateY(-5px); box-shadow:0 25px 50px rgba(0,0,0,.45); }
+
+    .g-label {
+      background:var(--card); padding:.95rem 1.2rem;
+      display:flex; justify-content:space-between; align-items:center;
+      border-bottom:1px solid var(--border);
+    }
+    .g-label strong { font-family:'Oswald',sans-serif; font-size:.92rem; letter-spacing:1px; text-transform:uppercase; }
+    .g-label span {
+      font-size:.7rem; color:var(--green-hi); font-weight:600;
+      letter-spacing:1.5px; text-transform:uppercase;
+      background:rgba(120,224,0,.1); padding:3px 10px; border-radius:20px;
+    }
+
+    /* Before/After slider with real images */
+    .ba {
+      position:relative; height:300px;
+      cursor:col-resize; user-select:none; overflow:hidden;
+    }
+    .ba-before, .ba-after {
+      position:absolute; inset:0;
+      background-size:cover; background-position:center;
+    }
+    /* The "before" uses grayscale + brown tint of the same image */
+    .ba-before { filter:grayscale(.85) sepia(.6) brightness(.6) contrast(1.05); }
+    .ba-after { clip-path:inset(0 50% 0 0); }
+
+    .ba-lbl {
+      position:absolute; top:14px; z-index:5;
+      font-family:'Oswald',sans-serif; font-size:.72rem; letter-spacing:2.5px;
+      text-transform:uppercase; padding:5px 12px; border-radius:4px;
+      backdrop-filter:blur(8px); font-weight:600;
+    }
+    .lbl-b { left:14px; background:rgba(0,0,0,.7); color:#ccc; border:1px solid rgba(255,255,255,.15); }
+    .lbl-a { right:14px; background:rgba(120,224,0,.92); color:#000; box-shadow:0 4px 14px rgba(120,224,0,.4); }
+
+    .ba-handle {
+      position:absolute; top:0; bottom:0; left:50%; z-index:10;
+      width:3px; background:var(--green-hi);
+      transform:translateX(-50%);
+      box-shadow:0 0 20px var(--glow);
+    }
+    .ba-handle::before {
+      content:''; position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:44px; height:44px; border-radius:50%;
+      background:var(--green); border:3px solid #000;
+      box-shadow:0 0 20px var(--glow), inset 0 0 0 2px var(--green-hi);
+    }
+    .ba-handle::after {
+      content:'\f337'; font-family:'Font Awesome 6 Free'; font-weight:900;
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%) rotate(90deg);
+      font-size:.85rem; color:#000; z-index:1;
+    }
+
+    /* ─── PRICING ───────────────────────────────────────────── */
+    #pricing {
+      padding:120px 5%; background:var(--black);
+      position:relative; overflow:hidden;
+    }
+    #pricing::before {
+      content:''; position:absolute; top:20%; left:-200px;
+      width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle, rgba(92,184,0,.1) 0%, transparent 60%);
+      pointer-events:none;
+    }
+
+    .pricing-note { text-align:center; font-size:.85rem; color:var(--muted); margin-bottom:3rem; }
+
+    .pricing-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1.5rem; max-width:1050px; margin:0 auto;
+      position:relative; z-index:1;
+    }
+    .p-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:18px; padding:2.6rem 2rem;
+      position:relative; transition:all .4s cubic-bezier(.2,.8,.2,1);
+      overflow:hidden;
+    }
+    .p-card::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, transparent 50%, rgba(120,224,0,.06));
+      opacity:0; transition:opacity .4s;
+    }
+    .p-card:hover::before { opacity:1; }
+    .p-card.featured {
+      border:1px solid var(--green);
+      background:linear-gradient(155deg, #0f1a09 0%, #161f0e 100%);
+      box-shadow:0 20px 50px rgba(0,0,0,.4), 0 0 0 1px rgba(120,224,0,.3), 0 30px 80px rgba(120,224,0,.12);
+      transform:scale(1.04);
+    }
+    .p-card.featured::after {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(circle at 50% 0%, rgba(120,224,0,.18) 0%, transparent 50%);
+      pointer-events:none;
+    }
+    .p-card:hover { transform:translateY(-8px); box-shadow:0 30px 60px rgba(0,0,0,.5); }
+    .p-card.featured:hover { transform:scale(1.04) translateY(-8px); }
+
+    .p-badge {
+      position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      background:var(--green); color:#000;
+      font-family:'Oswald',sans-serif; font-size:.72rem; font-weight:700;
+      letter-spacing:2px; text-transform:uppercase;
+      padding:5px 18px; border-radius:20px;
+      box-shadow:0 8px 24px rgba(120,224,0,.45);
+      z-index:3;
+    }
+    .p-tier {
+      font-family:'Oswald',sans-serif; font-size:1.4rem; font-weight:600;
+      text-transform:uppercase; letter-spacing:2px; color:var(--silver); margin-bottom:.4rem;
+      position:relative; z-index:1;
+    }
+    .p-card.featured .p-tier { color:var(--green-hi); }
+    .p-price {
+      font-family:'Oswald',sans-serif; font-size:3rem; font-weight:700; line-height:1;
+      position:relative; z-index:1;
+    }
+    .p-price span { font-size:.9rem; color:var(--muted); font-weight:400; }
+    .p-annual {
+      font-size:.82rem; color:var(--green); margin-bottom:1.8rem;
+      position:relative; z-index:1; font-weight:500;
+    }
+    .p-line { height:1px; background:var(--border); margin-bottom:1.4rem; position:relative; z-index:1; }
+    .p-feats { list-style:none; display:flex; flex-direction:column; gap:.75rem; margin-bottom:1.8rem; position:relative; z-index:1; }
+    .p-feats li { display:flex; align-items:flex-start; gap:.6rem; font-size:.875rem; color:#999; }
+    .p-feats i {
+      color:var(--green); margin-top:3px; flex-shrink:0;
+      background:rgba(92,184,0,.12); border-radius:50%;
+      width:18px; height:18px; display:flex; align-items:center; justify-content:center;
+      font-size:.6rem;
+    }
+
+    .p-btn {
+      position:relative; width:100%; display:block; text-align:center;
+      padding:.85rem; border-radius:10px; font-family:'Oswald',sans-serif;
+      letter-spacing:1.5px; font-size:.92rem; text-transform:uppercase;
+      border:none; cursor:pointer; transition:all .3s; z-index:1;
+    }
+    .p-btn-solid { background:var(--green); color:#000; box-shadow:0 6px 20px rgba(120,224,0,.3); }
+    .p-btn-solid:hover { background:var(--green-hi); box-shadow:0 10px 30px rgba(120,224,0,.5); transform:translateY(-2px); }
+    .p-btn-line { background:transparent; color:var(--silver); border:1px solid var(--border); }
+    .p-btn-line:hover { border-color:var(--green); color:var(--green-hi); background:rgba(92,184,0,.06); }
+
+    .p-resi {
+      max-width:680px; margin:4rem auto 0;
+      text-align:center; padding:2.5rem;
+      background:linear-gradient(135deg, rgba(120,224,0,.08), rgba(120,224,0,.02));
+      border:1px solid rgba(120,224,0,.25);
+      border-radius:18px; position:relative; overflow:hidden;
+    }
+    .p-resi::before {
+      content:''; position:absolute; top:-50%; left:-50%;
+      width:200%; height:200%;
+      background:radial-gradient(circle, rgba(120,224,0,.06) 0%, transparent 50%);
+      animation:rotateGradient 20s linear infinite;
+    }
+    @keyframes rotateGradient {
+      from { transform:rotate(0deg); }
+      to   { transform:rotate(360deg); }
+    }
+    .p-resi h3 { font-family:'Oswald',sans-serif; font-size:1.5rem; margin-bottom:.6rem; position:relative; }
+    .p-resi p { color:#999; font-size:.92rem; margin-bottom:1.3rem; position:relative; }
+    .p-resi .btn-green { position:relative; }
+
+    /* ─── REVIEWS ───────────────────────────────────────────── */
+    #reviews {
+      padding:120px 5%; background:var(--dark);
+      overflow:hidden; position:relative;
+    }
+    #reviews::before {
+      content:''; position:absolute; top:0; right:0;
+      width:60%; height:100%;
+      background:radial-gradient(ellipse at right, rgba(92,184,0,.06) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .reviews-top {
+      display:flex; align-items:center; justify-content:space-between;
+      margin-bottom:3rem; gap:2rem; flex-wrap:wrap;
+      position:relative; z-index:1;
+    }
+    .g-badge {
+      display:flex; align-items:center; gap:1rem;
+      background:var(--card); border:1px solid var(--border);
+      border-radius:12px; padding:.9rem 1.4rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.3);
+    }
+    .g-letter {
+      font-size:1.8rem; font-weight:900;
+      background:linear-gradient(135deg,#4285F4,#EA4335,#FBBC05,#34A853);
+      -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .g-info .score { font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:700; line-height:1; }
+    .g-info .stars { color:#FBBC05; font-size:1rem; margin-left:.4rem; }
+    .g-info small { color:var(--muted); font-size:.74rem; display:block; margin-top:.2rem; }
+
+    .r-track {
+      display:flex; gap:1.4rem;
+      overflow-x:auto; padding:1rem 0;
+      scrollbar-width:none; scroll-snap-type:x mandatory;
+      position:relative; z-index:1;
+    }
+    .r-track::-webkit-scrollbar { display:none; }
+
+    .r-card {
+      background:var(--card); border:1px solid var(--border);
+      border-radius:16px; padding:1.8rem;
+      min-width:325px; max-width:325px; flex-shrink:0;
+      scroll-snap-align:start; transition:all .35s;
+      position:relative;
+    }
+    .r-card::before {
+      content:'\201C'; position:absolute; top:10px; right:18px;
+      font-size:5rem; line-height:1; color:rgba(120,224,0,.12);
+      font-family:Georgia, serif;
+    }
+    .r-card:hover {
+      border-color:rgba(120,224,0,.3); transform:translateY(-5px);
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+
+    .r-head { display:flex; align-items:center; gap:.8rem; margin-bottom:.8rem; }
+    .r-av {
+      width:46px; height:46px; border-radius:50%;
+      background:var(--grad-green); display:flex; align-items:center;
+      justify-content:center; font-family:'Oswald',sans-serif;
+      font-size:1.05rem; font-weight:700; color:#000; flex-shrink:0;
+      box-shadow:0 6px 18px rgba(120,224,0,.3);
+    }
+    .r-info h4 { font-size:.92rem; font-weight:600; }
+    .r-info small { color:var(--muted); font-size:.76rem; }
+    .r-stars { color:#FBBC05; font-size:.95rem; margin-bottom:.8rem; letter-spacing:1px; }
+    .r-text { font-size:.88rem; color:#aaa; line-height:1.7; position:relative; z-index:1; }
+    .r-tag {
+      display:inline-flex; align-items:center; gap:.35rem; margin-top:1rem;
+      font-size:.68rem; color:var(--green); border:1px solid rgba(120,224,0,.28);
+      border-radius:20px; padding:3px 12px; font-weight:500;
+    }
+
+    .r-nav { display:flex; gap:.6rem; margin-top:1.8rem; position:relative; z-index:1; }
+    .r-arrow {
+      width:44px; height:44px; border-radius:10px;
+      background:var(--card); border:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; color:var(--silver); transition:all .25s;
+    }
+    .r-arrow:hover { border-color:var(--green); color:var(--green-hi); background:rgba(92,184,0,.05); transform:translateY(-2px); }
+
+    /* ─── CTA BANNER ────────────────────────────────────────── */
+    .cta-banner {
+      position:relative; padding:90px 5%;
+      background:linear-gradient(135deg, #0e1a09 0%, #1a2811 100%);
+      overflow:hidden; isolation:isolate;
+    }
+    .cta-banner::before {
+      content:''; position:absolute; inset:0; z-index:-1;
+      background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1920&q=80');
+      background-size:cover; background-position:center;
+      filter:brightness(.25) saturate(1.3);
+    }
+    .cta-banner::after {
+      content:''; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(115deg, rgba(8,10,8,.92) 0%, rgba(8,10,8,.6) 100%),
+                 radial-gradient(ellipse at right, rgba(120,224,0,.2) 0%, transparent 60%);
+    }
+    .cta-inner {
+      max-width:1100px; margin:0 auto;
+      display:grid; grid-template-columns:1.5fr auto;
+      gap:3rem; align-items:center;
+    }
+    .cta-inner h2 {
+      font-family:'Oswald',sans-serif; font-size:clamp(2rem,4vw,3.4rem);
+      font-weight:700; text-transform:uppercase; line-height:1.05;
+      letter-spacing:-.5px;
+    }
+    .cta-inner h2 .accent {
+      background:var(--grad-green); -webkit-background-clip:text;
+      background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .cta-inner p { color:#bbb; margin-top:.8rem; font-size:1.05rem; max-width:520px; }
+
+    /* ─── QUOTE FORM ────────────────────────────────────────── */
+    #quote {
+      padding:120px 5%; background:var(--black);
+      position:relative; overflow:hidden;
+    }
+    #quote::before {
+      content:''; position:absolute; bottom:0; right:0;
+      width:50%; height:80%;
+      background:radial-gradient(ellipse at right, rgba(92,184,0,.06) 0%, transparent 70%);
+      pointer-events:none;
+    }
+
+    .quote-grid { display:grid; grid-template-columns:1fr 1.4fr; gap:5rem; align-items:start; position:relative; z-index:1; }
+
+    .q-info h2 {
+      font-family:'Oswald',sans-serif; font-size:2.8rem; font-weight:700;
+      text-transform:uppercase; line-height:1.05; margin-bottom:1.2rem;
+      letter-spacing:-.5px;
+    }
+    .q-info h2 .accent {
+      background:var(--grad-green); -webkit-background-clip:text;
+      background-clip:text; -webkit-text-fill-color:transparent;
+    }
+    .q-info > p { color:var(--muted); line-height:1.75; margin-bottom:2.2rem; font-size:1rem; }
+
+    .c-items { display:flex; flex-direction:column; gap:1.3rem; }
+    .c-item { display:flex; align-items:flex-start; gap:1.1rem; }
+    .c-icon {
+      width:48px; height:48px; border-radius:12px;
+      background:rgba(92,184,0,.1); border:1px solid rgba(92,184,0,.25);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--green-hi); flex-shrink:0; transition:all .3s;
+    }
+    .c-item:hover .c-icon { background:rgba(92,184,0,.18); transform:rotate(-8deg); }
+    .c-item p { font-size:.92rem; color:var(--white); }
+    .c-item strong { display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); font-weight:500; margin-bottom:.2rem; }
+
+    .q-form {
+      background:linear-gradient(155deg, var(--card) 0%, var(--card-hi) 100%);
+      border:1px solid var(--border);
+      border-radius:18px; padding:2.8rem;
+      box-shadow:0 30px 60px rgba(0,0,0,.4);
+      position:relative; overflow:hidden;
+    }
+    .q-form::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background:var(--grad-green);
+    }
+
+    .f-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .f-group { margin-bottom:1.3rem; }
+    .f-group label { display:block; font-size:.72rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:.5rem; font-weight:600; }
+    .f-group input, .f-group select, .f-group textarea {
+      width:100%; background:var(--black); border:1px solid var(--border);
+      border-radius:10px; padding:.85rem 1rem; color:var(--white);
+      font-family:'Inter',sans-serif; font-size:.9rem;
+      outline:none; transition:all .3s; appearance:none;
+    }
+    .f-group input:focus, .f-group select:focus, .f-group textarea:focus {
+      border-color:var(--green); box-shadow:0 0 0 4px rgba(92,184,0,.1);
+      background:var(--darker);
+    }
+    .f-group select { background-image:url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2378E000'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e"); background-repeat:no-repeat; background-position:right .8rem center; padding-right:2.4rem; }
+    .f-group select option { background:var(--card); }
+    .f-group textarea { min-height:115px; resize:vertical; }
+    .f-submit {
+      position:relative; width:100%; padding:1.1rem;
+      background:var(--green); color:#000;
+      border:none; border-radius:10px;
+      font-family:'Oswald',sans-serif;
+      font-size:1.05rem; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+      cursor:pointer; transition:all .35s; margin-top:.5rem;
+      overflow:hidden; isolation:isolate;
+      box-shadow:0 10px 30px rgba(120,224,0,.3);
+    }
+    .f-submit::before {
+      content:''; position:absolute; inset:0; z-index:-1;
+      background:linear-gradient(120deg, transparent 30%, rgba(255,255,255,.4) 50%, transparent 70%);
+      transform:translateX(-100%); transition:transform .6s;
+    }
+    .f-submit:hover { background:var(--green-hi); box-shadow:0 14px 40px rgba(120,224,0,.5); transform:translateY(-2px); }
+    .f-submit:hover::before { transform:translateX(100%); }
+    .f-note { text-align:center; font-size:.74rem; color:var(--muted); margin-top:1rem; }
+
+    #formSuccess {
+      display:none; text-align:center; padding:4rem 1rem;
+    }
+    .success-check {
+      width:80px; height:80px; border-radius:50%;
+      background:rgba(120,224,0,.15); border:2px solid var(--green);
+      display:flex; align-items:center; justify-content:center;
+      font-size:2.2rem; color:var(--green-hi);
+      margin:0 auto 1.5rem;
+      animation:successPop .5s cubic-bezier(.3,1.5,.5,1);
+    }
+    @keyframes successPop {
+      from { transform:scale(0); opacity:0; }
+      to   { transform:scale(1); opacity:1; }
+    }
+    #formSuccess h3 { font-family:'Oswald',sans-serif; font-size:1.7rem; margin-bottom:.8rem; }
+    #formSuccess p { color:var(--muted); }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background:var(--darker); border-top:1px solid var(--border);
+      padding:4rem 5% 2rem; position:relative; overflow:hidden;
+    }
+    footer::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(90deg, transparent, var(--green), transparent);
+    }
+    .footer-grid { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:3rem; margin-bottom:2.5rem; }
+    .f-logo { height:64px; margin-bottom:1.2rem; display:block; filter:drop-shadow(0 4px 14px rgba(120,224,0,.2)); }
+    .f-logo-text { font-family:'Oswald',sans-serif; font-size:1.7rem; font-weight:700; margin-bottom:1.2rem; display:none; }
+    .f-logo-text span { color:var(--green-hi); }
+    .f-about { font-size:.875rem; color:var(--muted); line-height:1.75; max-width:300px; margin-bottom:1.3rem; }
+    .f-head { font-family:'Oswald',sans-serif; font-size:.92rem; font-weight:600; text-transform:uppercase; letter-spacing:2px; color:var(--silver); margin-bottom:1.2rem; position:relative; padding-bottom:.7rem; }
+    .f-head::after { content:''; position:absolute; bottom:0; left:0; width:30px; height:2px; background:var(--green); }
+    .f-links { list-style:none; display:flex; flex-direction:column; gap:.65rem; }
+    .f-links a { color:var(--muted); font-size:.875rem; transition:all .25s; display:inline-block; }
+    .f-links a:hover { color:var(--green-hi); transform:translateX(4px); }
+    .f-contact-item { display:flex; align-items:center; gap:.6rem; color:var(--muted); font-size:.875rem; margin-bottom:.65rem; }
+    .f-contact-item i { color:var(--green); width:14px; }
+
+    .footer-bottom {
+      display:flex; align-items:center; justify-content:space-between;
+      padding-top:2rem; border-top:1px solid var(--border);
+      font-size:.78rem; color:var(--muted); flex-wrap:wrap; gap:1rem;
+    }
+    .f-social { display:flex; gap:.65rem; }
+    .f-soc {
+      width:40px; height:40px; border-radius:10px;
+      border:1px solid var(--border); display:flex; align-items:center;
+      justify-content:center; color:var(--muted); font-size:.95rem; transition:all .3s;
+    }
+    .f-soc:hover { border-color:var(--green); color:#000; background:var(--green-hi); transform:translateY(-3px); box-shadow:0 8px 20px rgba(120,224,0,.3); }
+
+    /* Floating Quote button */
+    .float-quote {
+      position:fixed; bottom:30px; right:30px; z-index:998;
+      background:var(--green); color:#000;
+      padding:1rem 1.5rem; border-radius:50px;
+      font-family:'Oswald',sans-serif; font-size:.85rem; font-weight:700;
+      letter-spacing:1.5px; text-transform:uppercase;
+      display:flex; align-items:center; gap:.6rem;
+      box-shadow:0 10px 30px rgba(120,224,0,.4);
+      transition:all .3s; opacity:0; pointer-events:none;
+      transform:translateY(20px);
+    }
+    .float-quote.show { opacity:1; pointer-events:auto; transform:translateY(0); }
+    .float-quote:hover { background:var(--green-hi); transform:translateY(-3px); box-shadow:0 14px 36px rgba(120,224,0,.55); }
+    .float-quote::before {
+      content:''; position:absolute; inset:-4px; border-radius:50px;
+      background:var(--green); opacity:.4; z-index:-1;
+      animation:floatPulse 2s ease-in-out infinite;
+    }
+    @keyframes floatPulse {
+      0%,100% { transform:scale(1); opacity:.4; }
+      50%     { transform:scale(1.15); opacity:0; }
+    }
+
+    /* Case study card hover */
+    #cases > div > div[style*="background:var(--card)"]:hover {
+      border-color:rgba(120,224,0,.3)!important;
+      transform:translateY(-5px); box-shadow:0 25px 50px rgba(0,0,0,.45);
+    }
+
+    /* ─── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width:700px) {
+      #cases > div:last-child { grid-template-columns:1fr!important; text-align:center; padding:2rem!important; }
+      #cases > div:last-child > div:first-child { margin:0 auto; width:90px!important; height:90px!important; font-size:1.8rem!important; }
+      #coverage > div[style*="grid-template-columns"] > div { padding:1.8rem!important; }
+    }
+
+    @media (max-width:1100px) {
+      .about-grid { grid-template-columns:1fr; gap:3rem; }
+      .about-img-wrap img { height:400px; }
+      .cta-inner { grid-template-columns:1fr; gap:2rem; }
+    }
+    @media (max-width:900px) {
+      .quote-grid { grid-template-columns:1fr; gap:3rem; }
+      .footer-grid { grid-template-columns:1fr 1fr; gap:2rem; }
+      .p-card.featured { transform:none; }
+      .p-card.featured:hover { transform:translateY(-8px); }
+    }
+    @media (max-width:700px) {
+      section { padding:70px 5%!important; }
+      .nav-links { display:none; }
+      .burger { display:flex; }
+      .hero { padding:120px 5% 100px; }
+      .hero h1 { font-size:3rem; }
+      .hero-stats { gap:1.5rem; flex-wrap:wrap; }
+      .f-row { grid-template-columns:1fr; }
+      .hero-btns { flex-direction:column; align-items:stretch; }
+      .hero-btns a { justify-content:center; }
+      .reviews-top { flex-direction:column; align-items:flex-start; }
+      .footer-grid { grid-template-columns:1fr; }
+      .footer-bottom { flex-direction:column; }
+      .scroll-indicator { display:none; }
+      .float-quote { bottom:20px; right:20px; padding:.85rem 1.2rem; font-size:.78rem; }
+      .float-quote span { display:none; }
+    }
+
+    .nav-links.open {
+      display:flex; flex-direction:column;
+      position:fixed; inset:80px 0 0;
+      background:var(--darker); z-index:998;
+      padding:2.5rem 5%; gap:1.8rem;
+      border-top:1px solid var(--border);
+    }
+    .nav-links.open a { font-size:1.4rem; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════ NAV ══ -->
+<nav id="nav">
+  <img src="logo.png" alt="The Weedmen LLC" class="nav-logo"
+       onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+  <span class="nav-logo-text">T<span>W</span>M LLC</span>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">Why Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#coverage">Coverage</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#quote" class="nav-cta">Free Quote</a></li>
+  </ul>
+
+  <div class="burger" id="burger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════ HERO ═ -->
+<section class="hero" id="home">
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-pill">Milwaukee, Wisconsin · Year-Round Grounds &amp; Snow Management</div>
+    <h1>
+      <span class="word grad">Grass</span> Is Our Business.<br>
+      <span class="word grad">Reliability</span> Is Our Reputation.
+    </h1>
+    <p>Full-service commercial grounds maintenance and snow management for Milwaukee-area property managers. The same dedicated crew every visit, documented service records you can verify, and a fixed contract rate that never moves mid-season. We handle the property so you don't have to think about it.</p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn-green"><i class="fas fa-clipboard-list"></i> Request a Free Quote</a>
+      <a href="#plans" class="btn-ghost"><i class="fas fa-list-check"></i> View Service Plans</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><h3>[X]+</h3><p>Properties Maintained</p></div>
+      <div class="stat"><h3>2″</h3><p>Snow Trigger</p></div>
+      <div class="stat"><h3>24/7</h3><p>Storm Response</p></div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ TRUST BAR ══ -->
+<div class="trust-bar">
+  <div class="marquee" id="marquee">
+    <div class="trust-item"><i class="fas fa-shield-alt"></i> Licensed &amp; Insured</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-hard-hat"></i> Commercial Grade Equipment</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-lock"></i> Fixed Rate Contracts</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-bolt"></i> Guaranteed Response Times</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Milwaukee Metro Area</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-star"></i> 5-Star Google Rating</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-tree"></i> Year-Round Service</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <!-- duplicate for seamless loop -->
+    <div class="trust-item"><i class="fas fa-shield-alt"></i> Licensed &amp; Insured</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-hard-hat"></i> Commercial Grade Equipment</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-lock"></i> Fixed Rate Contracts</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-bolt"></i> Guaranteed Response Times</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-map-marker-alt"></i> Milwaukee Metro Area</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-star"></i> 5-Star Google Rating</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+    <div class="trust-item"><i class="fas fa-tree"></i> Year-Round Service</div>
+    <div class="trust-divider"><i class="fas fa-leaf"></i></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════ SERVICES ══ -->
+<section id="services">
+  <div class="section-head fu">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Full-Service Grounds<br><span class="accent">Maintenance</span></h2>
+    <p class="section-sub">From weekly turf care to winter storm response — we handle every season with commercial-grade professionalism.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- Each service image is a placeholder. Replace src with your own photo of TWM crew in uniform actively performing this service. -->
+
+    <div class="svc-card fu">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=600&q=80" alt="TWM crew member mowing turf in uniform">
+        <div class="svc-icon"><i class="fas fa-tractor"></i></div>
+      </div>
+      <div class="svc-body">
+        <h3>Weekly Turf Mowing</h3>
+        <p>Commercial wide-deck equipment and dedicated multi-person crews maintain uniform turf quality across every maintained area.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-circle"></i>Uniform mowing patterns &amp; height control</li>
+          <li><i class="fas fa-circle"></i>Peak growth adjustment visits</li>
+          <li><i class="fas fa-circle"></i>Dedicated crew consistency</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc-card fu">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1599629954294-14df9ec8bc5d?w=600&q=80" alt="TWM crew member edging in uniform">
+        <div class="svc-icon"><i class="fas fa-cut"></i></div>
+      </div>
+      <div class="svc-body">
+        <h3>Trimming &amp; Edging</h3>
+        <p>Precision line trimming around all structures, mechanical edging along hardscapes, and defined turf borders throughout the property.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-circle"></i>Buildings, fencing, trees &amp; signage</li>
+          <li><i class="fas fa-circle"></i>Sidewalk &amp; curb mechanical edging</li>
+          <li><i class="fas fa-circle"></i>Every visit, every zone</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc-card fu">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="TWM crew member with leaf blower in uniform">
+        <div class="svc-icon"><i class="fas fa-wind"></i></div>
+      </div>
+      <div class="svc-body">
+        <h3>Site Cleanup &amp; Blowing</h3>
+        <p>Complete post-service blowing of all hard surfaces, clipping removal, and a final visual inspection to ensure completion standards.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-circle"></i>Sidewalks, parking edges &amp; entrances</li>
+          <li><i class="fas fa-circle"></i>Grass clipping removal</li>
+          <li><i class="fas fa-circle"></i>Safe pedestrian pathways</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc-card fu">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1507371341162-763b5e419408?w=600&q=80" alt="TWM crew member raking leaves in uniform">
+        <div class="svc-icon"><i class="fas fa-leaf"></i></div>
+      </div>
+      <div class="svc-body">
+        <h3>Spring &amp; Fall Clean-Up</h3>
+        <p>Seasonal transition services that restore your property following winter and prepare landscaped areas for optimal seasonal growth.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-circle"></i>Full debris &amp; leaf removal</li>
+          <li><i class="fas fa-circle"></i>Bed edge definition &amp; grooming</li>
+          <li><i class="fas fa-circle"></i>3-visit structured fall program</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc-card fu">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1577985259306-13a25fe5dba2?w=600&q=80" alt="TWM crew member snow plowing in uniform">
+        <div class="svc-icon"><i class="fas fa-snowplow"></i></div>
+      </div>
+      <div class="svc-body">
+        <h3>Snow Plowing</h3>
+        <p>Storm response triggered at 2″ accumulation with commercial truck-mounted plows and skid-steer equipment for large-scale clearing.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-circle"></i>2″ trigger deployment</li>
+          <li><i class="fas fa-circle"></i>Parking &amp; drive lane clearing</li>
+          <li><i class="fas fa-circle"></i>Multi-pass coverage</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="svc-card fu">
+      <div class="svc-img">
+        <img src="https://images.unsplash.com/photo-1517299321609-52687d1bc55a?w=600&q=80" alt="TWM crew member spreading ice melt in uniform">
+        <div class="svc-icon"><i class="fas fa-snowflake"></i></div>
+      </div>
+      <div class="svc-body">
+        <h3>Ice Control &amp; Salting</h3>
+        <p>Pre-treatment applications before forecasted events, post-plow salting, and continuous storm monitoring all winter long.</p>
+        <ul class="svc-list">
+          <li><i class="fas fa-circle"></i>Pre-storm treatment</li>
+          <li><i class="fas fa-circle"></i>Sidewalk &amp; walkway clearing</li>
+          <li><i class="fas fa-circle"></i>Continuous 24/7 monitoring</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ SERVICE PLANS ══ -->
+<section id="plans" style="padding:120px 5%; background:var(--dark); position:relative; overflow:hidden;">
+  <div style="position:absolute; top:-150px; right:-150px; width:450px; height:450px; border-radius:50%; background:radial-gradient(circle, rgba(120,224,0,.08) 0%, transparent 60%); pointer-events:none;"></div>
+
+  <div class="section-head fu" style="text-align:center; position:relative; z-index:1;">
+    <p class="section-label" style="margin-left:auto;margin-right:auto;">Service Plans</p>
+    <h2 class="section-title">Choose The Level Of <span class="accent">Coverage Your Property Needs</span></h2>
+    <p class="section-sub" style="margin:0 auto;">Every property is different, so every quote is custom — but most clients fall into one of three plans. All plans include dedicated crew assignment, documented visits, and a locked-in rate.</p>
+  </div>
+
+  <div class="pricing-grid" style="position:relative; z-index:1;">
+
+    <div class="p-card fu">
+      <div class="p-tier">Tier 1</div>
+      <h3 style="font-family:'Oswald',sans-serif; font-size:1.8rem; font-weight:700; margin-bottom:.6rem; text-transform:uppercase;">Turf Essentials</h3>
+      <p style="color:var(--muted); font-size:.9rem; line-height:1.65; margin-bottom:1.4rem;">For properties that need clean, consistent turf and nothing more. Growing-season contract.</p>
+      <div class="p-line"></div>
+      <ul class="p-feats">
+        <li><i class="fas fa-check"></i>Weekly mowing with commercial wide-deck equipment</li>
+        <li><i class="fas fa-check"></i>Line trimming around all structures and obstacles</li>
+        <li><i class="fas fa-check"></i>Mechanical edging along walks and curbs</li>
+        <li><i class="fas fa-check"></i>Full site blow-down and clipping cleanup every visit</li>
+      </ul>
+      <a href="#quote" class="p-btn p-btn-line">Request Quote</a>
+    </div>
+
+    <div class="p-card featured fu">
+      <div class="p-badge">★ Most Popular</div>
+      <div class="p-tier">Tier 2</div>
+      <h3 style="font-family:'Oswald',sans-serif; font-size:1.8rem; font-weight:700; margin-bottom:.6rem; text-transform:uppercase; color:var(--green-hi);">Full Grounds</h3>
+      <p style="color:var(--muted); font-size:.9rem; line-height:1.65; margin-bottom:1.4rem;">Complete curb appeal, start to finish. Growing-season contract.</p>
+      <div class="p-line"></div>
+      <ul class="p-feats">
+        <li><i class="fas fa-check"></i>Everything in Turf Essentials</li>
+        <li><i class="fas fa-check"></i>Landscape bed edging, weeding, and grooming</li>
+        <li><i class="fas fa-check"></i>Structured spring and fall clean-up program</li>
+        <li><i class="fas fa-check"></i>Seasonal growth-adjustment visits at peak</li>
+      </ul>
+      <a href="#quote" class="p-btn p-btn-solid">Request Quote</a>
+    </div>
+
+    <div class="p-card fu">
+      <div class="p-tier">Tier 3</div>
+      <h3 style="font-family:'Oswald',sans-serif; font-size:1.8rem; font-weight:700; margin-bottom:.6rem; text-transform:uppercase;">Year-Round Property Care</h3>
+      <p style="color:var(--muted); font-size:.9rem; line-height:1.65; margin-bottom:1.4rem;">Hands-off coverage for every season. One vendor, one contract, no gaps. 12-month contract.</p>
+      <div class="p-line"></div>
+      <ul class="p-feats">
+        <li><i class="fas fa-check"></i>Everything in Full Grounds</li>
+        <li><i class="fas fa-check"></i>Snow plowing at 2″ trigger with multi-pass coverage</li>
+        <li><i class="fas fa-check"></i>Pre-treatment, salting, and 24/7 storm monitoring</li>
+        <li><i class="fas fa-check"></i>Sidewalk and entrance clearing for pedestrian safety</li>
+      </ul>
+      <a href="#quote" class="p-btn p-btn-line">Request Quote</a>
+    </div>
+
+  </div>
+
+  <div class="p-resi fu" style="margin-top:3.5rem;">
+    <h3 style="display:flex; align-items:center; justify-content:center; gap:.6rem;"><i class="fas fa-snowflake" style="color:var(--green-hi);"></i> Snow &amp; Ice — Standalone Available</h3>
+    <p>Already have a vendor for grounds? Snow &amp; Ice Management is also available as a winter-only contract for properties already maintained by another company.</p>
+    <a href="#quote" class="btn-green" style="display:inline-flex; position:relative;">Get a Plan Built for Your Property</a>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════ COVERAGE & GUARANTEES ══ -->
+<section id="coverage" style="padding:120px 5%; background:var(--black); position:relative; overflow:hidden;">
+  <div style="position:absolute; bottom:-100px; left:-100px; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, rgba(120,224,0,.08) 0%, transparent 60%); pointer-events:none;"></div>
+
+  <div class="section-head fu" style="text-align:center; max-width:780px; margin:0 auto 3.5rem;">
+    <p class="section-label" style="margin-left:auto;margin-right:auto;">Coverage &amp; Accountability</p>
+    <h2 class="section-title">Protection And Guarantees <span class="accent">In Writing</span></h2>
+    <p class="section-sub" style="margin:0 auto;">When you hand a vendor the keys to your property, you're also handing them part of your liability exposure. We've structured TWM so that risk stays where it belongs — with us.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:1.6rem; max-width:1100px; margin:0 auto; position:relative; z-index:1;">
+
+    <!-- INSURANCE BLOCK -->
+    <div class="fu" style="background:linear-gradient(155deg, var(--card) 0%, var(--card-hi) 100%); border:1px solid var(--border); border-radius:18px; padding:2.5rem; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; right:0; height:3px; background:var(--grad-green);"></div>
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.6rem;">
+        <div style="width:54px; height:54px; border-radius:14px; background:var(--green); display:flex; align-items:center; justify-content:center; color:#000; font-size:1.4rem;"><i class="fas fa-shield-alt"></i></div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Full Insurance Coverage</h3>
+      </div>
+      <ul class="p-feats" style="margin-bottom:1.4rem;">
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">General Liability:</strong> $[1,000,000] per occurrence / $[2,000,000] aggregate</span></li>
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Commercial Auto Liability</strong> on all vehicles and equipment</span></li>
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Workers' Compensation</strong> covering every crew member on site</span></li>
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Certificate of Insurance</strong> furnished on request; your company named as additional insured at no charge</span></li>
+      </ul>
+      <p style="font-size:.78rem; color:var(--muted); font-style:italic; line-height:1.6;">Documentation provided upon request. Coverage levels above are placeholders — verify against your real policy before publishing.</p>
+    </div>
+
+    <!-- GUARANTEES BLOCK -->
+    <div class="fu" style="background:linear-gradient(155deg, var(--card) 0%, var(--card-hi) 100%); border:1px solid var(--border); border-radius:18px; padding:2.5rem; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; right:0; height:3px; background:var(--grad-green);"></div>
+      <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1.6rem;">
+        <div style="width:54px; height:54px; border-radius:14px; background:var(--green); display:flex; align-items:center; justify-content:center; color:#000; font-size:1.4rem;"><i class="fas fa-stopwatch"></i></div>
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.5rem; font-weight:700; text-transform:uppercase; letter-spacing:1px;">Response Guarantees</h3>
+      </div>
+      <ul class="p-feats" style="margin-bottom:1.4rem;">
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Snow:</strong> Crews deploy at 2″ accumulation; lots and drive lanes cleared within [X] hours of snowfall ending</span></li>
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Ice:</strong> Pre-treatment ahead of forecasted events; walkways cleared and salted before [7 AM / business open]</span></li>
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Service issues:</strong> Any concern addressed within [X] business hours of your call</span></li>
+        <li><i class="fas fa-check"></i><span><strong style="color:var(--white);">Quotes:</strong> Detailed written proposal returned within 24 hours</span></li>
+      </ul>
+      <p style="font-size:.85rem; color:var(--silver); line-height:1.6; border-left:2px solid var(--green); padding-left:.9rem;">Every guarantee here is contractual, not marketing. If we miss it, you'll know exactly what we owe you.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════ ABOUT / WHY US ══ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap fl">
+      <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=900&q=80" alt="Beautifully maintained lawn">
+      <div class="top-right-badge"><i class="fas fa-leaf"></i> Milwaukee Metro</div>
+      <div class="floating-badge">
+        <div class="fb-icon"><i class="fas fa-medal"></i></div>
+        <div>
+          <h4>Trusted with<br>[X]+ Acres</h4>
+          <p>Across Milwaukee</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-content fr">
+      <p class="section-label">Why Property Managers Choose TWM</p>
+      <h2>Built For Properties That Can't Afford An <span style="background:var(--grad-green);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">Unreliable Vendor</span>.</h2>
+      <p>The Weedmen LLC is a commercial grounds and snow management company serving the Milwaukee metro. We work with HOA communities, multi-building residential properties, and commercial campuses — the kind of accounts where missed visits and slow storm response aren't an inconvenience, they're a liability. Everything we do is structured to remove that risk from your desk.</p>
+
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-icon"><i class="fas fa-users"></i></div>
+          <div>
+            <h4>Dedicated Crew Assignments</h4>
+            <p>The same crew services your property on every visit. They learn your layout, your priority zones, and the details that a rotating crew never would — which means consistent results instead of a different standard every week.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="fas fa-clipboard-check"></i></div>
+          <div>
+            <h4>Documented Service Verification</h4>
+            <p>Every visit is logged and time-stamped. You get a record you can pull up in seconds — proof of completion for your owners, your board, or your own files. No more taking a vendor's word for it.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <h4>Fully Insured &amp; Bonded</h4>
+            <p>General liability, commercial auto, and workers' compensation coverage on file. We'll provide a Certificate of Insurance and name your management company as additional insured before we ever set foot on your property.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-icon"><i class="fas fa-handshake"></i></div>
+          <div>
+            <h4>Locked-In Contract Rates</h4>
+            <p>Your rate is fixed for the entire contract term — no fuel surcharges, no peak-growth upcharges, no mid-season "adjustments." You can budget the year with one number.</p>
+          </div>
+        </div>
+      </div>
+
+      <a href="#quote" class="btn-green"><i class="fas fa-arrow-right"></i> Request a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ GALLERY ══ -->
+<section id="gallery">
+  <div class="section-head fu">
+    <p class="section-label">Our Work</p>
+    <h2 class="section-title">Before &amp; <span class="accent">After</span></h2>
+    <p class="section-sub">Drag the slider on any photo to reveal the TWM difference. Real properties, real results.</p>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="g-item fu">
+      <div class="g-label"><strong>Lawn Renovation</strong><span>Residential</span></div>
+      <div class="ba" data-ba>
+        <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=700&q=80')"></div>
+        <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=700&q=80')"></div>
+        <span class="ba-lbl lbl-b">Before</span>
+        <span class="ba-lbl lbl-a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+    </div>
+
+    <div class="g-item fu">
+      <div class="g-label"><strong>Commercial Property</strong><span>Multi-Unit</span></div>
+      <div class="ba" data-ba>
+        <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=700&q=80')"></div>
+        <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=700&q=80')"></div>
+        <span class="ba-lbl lbl-b">Before</span>
+        <span class="ba-lbl lbl-a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+    </div>
+
+    <div class="g-item fu">
+      <div class="g-label"><strong>Fall Clean-Up</strong><span>HOA Community</span></div>
+      <div class="ba" data-ba>
+        <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1507371341162-763b5e419408?w=700&q=80')"></div>
+        <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80'); filter:none;"></div>
+        <span class="ba-lbl lbl-b">Before</span>
+        <span class="ba-lbl lbl-a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+    </div>
+
+    <div class="g-item fu">
+      <div class="g-label"><strong>Snow Management</strong><span>Parking &amp; Access</span></div>
+      <div class="ba" data-ba>
+        <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1483381616288-aa1773a1f3ac?w=700&q=80'); filter:brightness(.9) saturate(0.5);"></div>
+        <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1577985259306-13a25fe5dba2?w=700&q=80'); filter:none;"></div>
+        <span class="ba-lbl lbl-b">Before</span>
+        <span class="ba-lbl lbl-a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+    </div>
+
+    <div class="g-item fu">
+      <div class="g-label"><strong>Precision Edging</strong><span>Sidewalk Definition</span></div>
+      <div class="ba" data-ba>
+        <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1599629954294-14df9ec8bc5d?w=700&q=80')"></div>
+        <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1599629954294-14df9ec8bc5d?w=700&q=80')"></div>
+        <span class="ba-lbl lbl-b">Before</span>
+        <span class="ba-lbl lbl-a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+    </div>
+
+    <div class="g-item fu">
+      <div class="g-label"><strong>Spring Restoration</strong><span>Townhome Community</span></div>
+      <div class="ba" data-ba>
+        <div class="ba-before" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80')"></div>
+        <div class="ba-after" style="background-image:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=80')"></div>
+        <span class="ba-lbl lbl-b">Before</span>
+        <span class="ba-lbl lbl-a">After</span>
+        <div class="ba-handle"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ CASE STUDIES ══ -->
+<section id="cases" style="padding:110px 5%; background:var(--dark); position:relative; overflow:hidden;">
+  <div style="position:absolute; top:20%; right:-150px; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, rgba(120,224,0,.06) 0%, transparent 60%); pointer-events:none;"></div>
+
+  <div class="section-head fu" style="text-align:center; max-width:780px; margin:0 auto 3.5rem; position:relative; z-index:1;">
+    <p class="section-label" style="margin-left:auto;margin-right:auto;">Client Stories</p>
+    <h2 class="section-title">Properties We've <span class="accent">Turned Around</span></h2>
+    <p class="section-sub" style="margin:0 auto;">A few of the accounts we're most proud of. Real properties, real timelines, real outcomes.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(330px,1fr)); gap:1.6rem; position:relative; z-index:1;">
+
+    <!-- Case Study 1 - bracketed for real content -->
+    <div class="fu" style="background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; transition:all .35s;">
+      <div style="height:200px; background:url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?w=600&q=80') center/cover; position:relative;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, transparent 50%, var(--card));"></div>
+        <span style="position:absolute; top:14px; left:14px; background:rgba(120,224,0,.92); color:#000; font-family:'Oswald',sans-serif; font-size:.7rem; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:4px; font-weight:700;">Case Study</span>
+      </div>
+      <div style="padding:1.8rem;">
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:600; text-transform:uppercase; margin-bottom:.5rem;">[Property Name / Type]</h3>
+        <p style="font-size:.78rem; color:var(--green-hi); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:1rem; font-weight:600;">[HOA / Commercial / Multi-Family] · [# of Units or Acres]</p>
+        <p style="color:var(--muted); font-size:.88rem; line-height:1.7;">[Write the story: "Took over a 24-unit HOA mid-season after their previous vendor failed. Within 30 days we had the grounds back to standard and built a documented service log that the board now references at every meeting."]</p>
+        <p style="margin-top:1.2rem; font-size:.78rem; color:var(--silver); border-left:2px solid var(--green); padding-left:.85rem; line-height:1.6;"><strong style="color:var(--green-hi);">Outcome:</strong> [The result — e.g., "Renewed for 2026 season with expanded snow contract"]</p>
+      </div>
+    </div>
+
+    <!-- Case Study 2 -->
+    <div class="fu" style="background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; transition:all .35s;">
+      <div style="height:200px; background:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80') center/cover; position:relative;">
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg, transparent 50%, var(--card));"></div>
+        <span style="position:absolute; top:14px; left:14px; background:rgba(120,224,0,.92); color:#000; font-family:'Oswald',sans-serif; font-size:.7rem; letter-spacing:2px; text-transform:uppercase; padding:4px 12px; border-radius:4px; font-weight:700;">Case Study</span>
+      </div>
+      <div style="padding:1.8rem;">
+        <h3 style="font-family:'Oswald',sans-serif; font-size:1.25rem; font-weight:600; text-transform:uppercase; margin-bottom:.5rem;">[Property Name / Type]</h3>
+        <p style="font-size:.78rem; color:var(--green-hi); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:1rem; font-weight:600;">[Property Type] · [Size]</p>
+        <p style="color:var(--muted); font-size:.88rem; line-height:1.7;">[Write the story of a second account where you made a measurable difference. Specific is better than impressive.]</p>
+        <p style="margin-top:1.2rem; font-size:.78rem; color:var(--silver); border-left:2px solid var(--green); padding-left:.85rem; line-height:1.6;"><strong style="color:var(--green-hi);">Outcome:</strong> [Concrete result]</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Owner / Team mini-section -->
+  <div class="fu" style="max-width:900px; margin:4rem auto 0; background:linear-gradient(135deg, rgba(120,224,0,.06), rgba(120,224,0,.02)); border:1px solid rgba(120,224,0,.2); border-radius:18px; padding:2.5rem; display:grid; grid-template-columns:auto 1fr; gap:2rem; align-items:center;">
+    <div style="width:120px; height:120px; border-radius:50%; background:var(--grad-green); display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-size:2.4rem; font-weight:700; color:#000; flex-shrink:0; box-shadow:0 10px 30px rgba(120,224,0,.35);">[I]</div>
+    <div>
+      <p class="section-label">Behind The Company</p>
+      <h3 style="font-family:'Oswald',sans-serif; font-size:1.6rem; font-weight:700; text-transform:uppercase; margin-bottom:.6rem;">[Owner Name], Founder</h3>
+      <p style="color:var(--muted); line-height:1.7; font-size:.95rem;">[Write 2–3 sentences about who you are, your background in grounds maintenance, and why you started TWM. Property managers want to know there's a real person accountable for the work — not just a logo. Mention your crew size, e.g., "TWM runs a crew of [X] full-time staff, all trained on commercial-grade equipment."]</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════ REVIEWS ══ -->
+<section id="reviews">
+  <div class="reviews-top fu">
+    <div>
+      <p class="section-label">Client Feedback</p>
+      <h2 class="section-title">What Our <span class="accent">Clients Say</span></h2>
+    </div>
+    <div class="g-badge">
+      <div class="g-letter">G</div>
+      <div class="g-info">
+        <div class="score">5.0 <span class="stars">★★★★★</span></div>
+        <small>Based on [X] Google Reviews</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="r-track" id="reviewTrack">
+
+    <!-- REPLACE the placeholder reviews below with copies of your real Google reviews. Delete cards you don't need. -->
+
+    <div class="r-card">
+      <div class="r-head">
+        <div class="r-av">[I]</div>
+        <div class="r-info"><h4>[Reviewer Name]</h4><small>[Their Role · Their Company]</small></div>
+      </div>
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text">"[Paste the exact text of a real Google review here. Keep the quotation marks. Use the reviewer's actual words — don't paraphrase. Even one or two real reviews beats six fake ones every time.]"</p>
+      <span class="r-tag"><i class="fab fa-google"></i> Verified Google Review</span>
+    </div>
+
+    <div class="r-card">
+      <div class="r-head">
+        <div class="r-av">[I]</div>
+        <div class="r-info"><h4>[Reviewer Name]</h4><small>[Their Role · Their Company]</small></div>
+      </div>
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text">"[Paste your second real Google review here.]"</p>
+      <span class="r-tag"><i class="fab fa-google"></i> Verified Google Review</span>
+    </div>
+
+    <div class="r-card">
+      <div class="r-head">
+        <div class="r-av">[I]</div>
+        <div class="r-info"><h4>[Reviewer Name]</h4><small>[Their Role · Their Company]</small></div>
+      </div>
+      <div class="r-stars">★★★★★</div>
+      <p class="r-text">"[Paste your third real Google review here.]"</p>
+      <span class="r-tag"><i class="fab fa-google"></i> Verified Google Review</span>
+    </div>
+
+  </div>
+
+  <div class="r-nav fu">
+    <div class="r-arrow" onclick="scrollReviews(-1)"><i class="fas fa-chevron-left"></i></div>
+    <div class="r-arrow" onclick="scrollReviews(1)"><i class="fas fa-chevron-right"></i></div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════ CTA BANNER ══ -->
+<section class="cta-banner">
+  <div class="cta-inner">
+    <div class="fl">
+      <h2>Ready For A <span class="accent">Property That Stands Out?</span></h2>
+      <p>Get a free, no-obligation quote tailored to your property. Most quotes returned within 24 hours.</p>
+    </div>
+    <a href="#quote" class="btn-green fr" style="font-size:1.1rem;padding:1.2rem 2.4rem;">
+      <i class="fas fa-paper-plane"></i> Get My Free Quote
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ QUOTE ══ -->
+<section id="quote">
+  <div class="quote-grid">
+    <div class="q-info fl">
+      <p class="section-label">Get Started</p>
+      <h2>Request a<br><span class="accent">Free Quote</span></h2>
+      <p>Whether you manage a large commercial campus or a single residential property, we'll deliver a detailed, no-obligation proposal tailored to your exact property and service needs.</p>
+      <div class="c-items">
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><strong>Service Area</strong><p>Milwaukee &amp; Greater Metro Area, Wisconsin</p></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-phone"></i></div>
+          <div><strong>Phone</strong><p>[YOUR PHONE NUMBER]</p></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-envelope"></i></div>
+          <div><strong>Email</strong><p>[YOUR EMAIL]</p></div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon"><i class="fas fa-clock"></i></div>
+          <div><strong>Response Time</strong><p>All quote requests within 24 hours</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-form fr">
+      <form id="quoteForm" onsubmit="handleSubmit(event)" novalidate>
+        <div class="f-row">
+          <div class="f-group"><label>First Name *</label><input type="text" placeholder="John" required></div>
+          <div class="f-group"><label>Last Name *</label><input type="text" placeholder="Smith" required></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group"><label>Email Address *</label><input type="email" placeholder="john@example.com" required></div>
+          <div class="f-group"><label>Phone Number *</label><input type="tel" placeholder="(414) 555-0000" required></div>
+        </div>
+        <div class="f-row">
+          <div class="f-group">
+            <label>Property Type *</label>
+            <select required>
+              <option value="" disabled selected>Select type</option>
+              <option>Residential — Single Family</option>
+              <option>Residential — Multi-Family</option>
+              <option>HOA / Townhome Community</option>
+              <option>Commercial Campus</option>
+              <option>Apartment Complex</option>
+              <option>Institutional Property</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label>Property Size</label>
+            <select>
+              <option value="" disabled selected>Approximate size</option>
+              <option>Under 1 acre</option>
+              <option>1 – 5 acres</option>
+              <option>5 – 20 acres</option>
+              <option>20 – 50 acres</option>
+              <option>50+ acres</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-group">
+          <label>Primary Service Needed</label>
+          <select>
+            <option value="" disabled selected>Select service</option>
+            <option>Weekly Lawn Maintenance</option>
+            <option>Snow &amp; Ice Management</option>
+            <option>Spring / Fall Clean-Up</option>
+            <option>Full Year-Round Service</option>
+            <option>Commercial Grounds Contract</option>
+            <option>One-Time Service</option>
+            <option>Multiple Services</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label>Property Address</label>
+          <input type="text" placeholder="123 Main St, Milwaukee, WI 53202">
+        </div>
+        <div class="f-group">
+          <label>Additional Details / Questions</label>
+          <textarea placeholder="Tell us about your property, specific needs, current issues, or any questions you have…"></textarea>
+        </div>
+        <button type="submit" class="f-submit"><i class="fas fa-paper-plane"></i> &nbsp;Submit Quote Request</button>
+        <p class="f-note"><i class="fas fa-lock"></i> &nbsp;Your information is private and will never be shared.</p>
+      </form>
+
+      <div id="formSuccess">
+        <div class="success-check"><i class="fas fa-check"></i></div>
+        <h3>Quote Request Received!</h3>
+        <p>Thank you for reaching out to The Weedmen LLC. A member of our team will contact you within 24 hours to discuss your property and service options.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="logo.png" alt="The Weedmen LLC" class="f-logo"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="f-logo-text">T<span>W</span>M LLC</div>
+      <p class="f-about">Full-service commercial grounds maintenance and snow management in Milwaukee, Wisconsin. Grass is our business — and we mean it.</p>
+      <div class="f-social">
+        <a href="#" class="f-soc"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="f-soc"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="f-soc"><i class="fab fa-google"></i></a>
+        <a href="#" class="f-soc"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    <div>
+      <h4 class="f-head">Services</h4>
+      <ul class="f-links">
+        <li><a href="#services">Weekly Lawn Mowing</a></li>
+        <li><a href="#services">Trimming &amp; Edging</a></li>
+        <li><a href="#services">Spring &amp; Fall Clean-Up</a></li>
+        <li><a href="#services">Snow Plowing</a></li>
+        <li><a href="#services">Ice Control &amp; Salting</a></li>
+        <li><a href="#services">Sidewalk Clearing</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="f-head">Company</h4>
+      <ul class="f-links">
+        <li><a href="#home">About TWM</a></li>
+        <li><a href="#gallery">Project Gallery</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#quote">Request a Quote</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="f-head">Contact</h4>
+      <div class="f-contact-item"><i class="fas fa-map-marker-alt"></i> Milwaukee, WI</div>
+      <div class="f-contact-item"><i class="fas fa-phone"></i> [YOUR PHONE NUMBER]</div>
+      <div class="f-contact-item"><i class="fas fa-envelope"></i> [YOUR EMAIL]</div>
+      <div class="f-contact-item"><i class="fas fa-clock"></i> Mon–Sat 7am–7pm</div>
+      <div class="f-contact-item"><i class="fas fa-snowflake"></i> 24/7 Storm Response</div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 The Weedmen LLC · All Rights Reserved · Milwaukee, WI</p>
+    <p style="opacity:.6;">Designed with care for grass lovers everywhere 🌱</p>
+  </div>
+</footer>
+
+<!-- Floating Quote button -->
+<a href="#quote" class="float-quote" id="floatQuote">
+  <i class="fas fa-clipboard-list"></i> <span>Free Quote</span>
+</a>
+
+
+<!-- ══════════════════════════════════════════════════ JS ══ -->
+<script>
+  /* ── Navbar shrink ── */
+  const nav = document.getElementById('nav');
+  const floatQ = document.getElementById('floatQuote');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 60);
+    floatQ.classList.toggle('show', y > 800);
+  });
+
+  /* ── Mobile nav + reliable anchor scrolling ── */
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href');
+      if (id.length > 1) {
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          const offset = nav.offsetHeight + 10;
+          const y = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+          document.getElementById('navLinks').classList.remove('open');
+          history.replaceState(null, '', id);
+        }
+      }
+    });
+  });
+
+  /* ── Scroll reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fu,.fl,.fr').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 3) * 0.1}s`;
+    io.observe(el);
+  });
+
+/* ── Before/After sliders ── */
+  document.querySelectorAll('[data-ba]').forEach(container => {
+    const handle = container.querySelector('.ba-handle');
+    const after  = container.querySelector('.ba-after');
+    let drag = false;
+    function move(x) {
+      const r = container.getBoundingClientRect();
+      const pct = Math.max(3, Math.min(97, ((x - r.left) / r.width) * 100));
+      after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+      handle.style.left = pct + '%';
+    }
+    container.addEventListener('mousedown',  e => { drag = true; move(e.clientX); });
+    document.addEventListener('mouseup',     () => drag = false);
+    document.addEventListener('mousemove',   e => { if (drag) move(e.clientX); });
+    container.addEventListener('touchstart', e => { drag = true; move(e.touches[0].clientX); e.preventDefault(); }, { passive:false });
+    document.addEventListener('touchend',    () => drag = false);
+    document.addEventListener('touchmove',   e => { if (drag) move(e.touches[0].clientX); });
+  });
+
+  /* ── Reviews arrows ── */
+  function scrollReviews(dir) {
+    document.getElementById('reviewTrack').scrollBy({ left: dir * 345, behavior: 'smooth' });
+  }
+
+  /* ── Quote form ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('quoteForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+
+</script>
+
+</body>
+</html>
